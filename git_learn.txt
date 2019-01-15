@@ -1,0 +1,35 @@
+初始化：
+    giti init
+    giti clone url
+    
+    git status:查看状态
+    
+更新到本地仓库：
+
+添加文件到暂存区：（修改后也需如此）
+    1.git add [fname] （追踪文件）
+    2.git commit -m '提交信息'
+    
+    小技巧：
+    1.git add -A：添加全部到暂存区
+    2.git commit -a -m '提交信息'：将修改过的全部提交
+    
+重新提交：git commit --amend
+
+如果刚才提交时忘了暂存某些修改，可以先补上暂存操作，然后再运行 --amend 提交：
+git commit -m 'initial commit'
+git add forgotten_file
+git commit --amend
+
+从暂存区删除：git reset HEAD <fname>
+
+
+添加远程仓库：git remove 
+从远程仓库抓取数据:git fetch [remote-name]
+git pull: 命令自动抓取数据下来，然后将远端分支自动合并到本地仓库中当前分支
+推送数据到远程仓库:git push origin master
+查看远程仓库信息：git remote show [remote-name]
+
+分支：
+创建分支：git branch testing
+切换分支：git checkout testing
