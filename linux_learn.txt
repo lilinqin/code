@@ -1,0 +1,59 @@
+1.ls
+ls -a 列出目录所有文件，包含以.开始的隐藏文件
+ls -A 列出除.及..的其它文件
+ls -t 以文件修改时间排序
+ls -r 反序排列
+ls -S 以文件大小排序
+
+2.cd
+cd / 进入要目录
+cd ~ 进入"家"目录
+cd - 进入上一次工作路径
+
+3.pwd：查看当前路径
+
+4.mkdir 创建目录
+mkdir t 当前工作目录下创建t文件夹
+mkdir -p /temp/test/t 在temp目录下创建路径为test/t的目录，若不存在则创建
+
+5.rm:删除
+rm -rf fname 删除当前目录下的所有文件及目录，并且是直接删除，无需逐一确认命令行为
+rm -rf test.txt 删除文件
+rm -rf test/ 删除test目录及子目录文件
+
+6.mv 移动文件或修改文件名
+ mv test.log test1.txt  将文件test.log重命名为test1.txt
+ mv llog1.txt log2.txt log3.txt /test3 将文件log1.txt,log2.txt,log3.txt移动到根的test3目录中
+ mv -i log1.txt log2.txt 将文件file1改名为file2，如果file2已经存在，则询问是否覆盖
+
+7.cp:复制
+cp -ai a.txt test 复制a.txt到test目录下，保持原文件时间,如果原文件存在提示是否覆盖
+cp -s a.txt link_a.txt 为a.txt建议一个链接（快捷方式）
+
+8.tar:解压和压缩
+ 常用参数：
+         -c 建立新的压缩文件
+         -f 指定压缩文件
+         -r 添加文件到已经压缩文件包中
+         -u 添加改了和现有的文件到压缩包中
+         -x 从压缩包中抽取文件
+         -t 显示压缩文件中的内容
+         -z 支持gzip压缩
+         -j 支持bzip2压缩
+         -Z 支持compress解压文件
+         -v 显示操作过程
+         有关gzip及bzip2压缩
+         gzip实例：压缩gzip fileName .tar.gz和.tgz  解压：gunzip filename.gz或gzip -d filename.gz
+         对应：tar zcvf filename.tar.gz     tar zxvf filename.tar.gz
+         bz2实例：压缩bzip2 -z filename .tar.bz2 解压：bunzip filename.bz2或bzip -d filename.bz2
+         对应：tar jcvf filename.tar.gz         解压：tar jxvf filename.tar.bz2
+         实例：
+         （1）将文件全部打包成tar包
+         tar -cvf log.tar 1.log,2.log 或tar -cvf log.*
+         （2）将/etc下的所有文件及目录打包到指定目录，并使用gz压缩
+         tar -zcvf /tmp/etc.tar.gz /etc
+         （3）查看刚打包的文件内容（一定加z，因为是使用gzip压缩的）
+         tar -ztvf /tmp/etc.tar.gz
+         （4）要压缩打包/home, /etc ，但不要 /home/dmtsai
+         tar --exclude /home/dmtsai -zcvf myfile.tar.gz /home/* /etc
+
